@@ -2,7 +2,7 @@ const footer = document.getElementById("footer")
 
 footer.innerHTML = 
 `
-<footer class="bg-light text-center text-lg-start">
+<footer class="bg-dark text-center text-lg-start text-white">
   <!-- Grid container -->
   <div class="container p-4">
     <!--Grid row-->
@@ -38,7 +38,7 @@ footer.innerHTML =
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <a class="text-white" href="empty">Easy-Trade.com</a>
   </div>
   <!-- Copyright -->
 </footer>
