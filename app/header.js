@@ -3,7 +3,9 @@ const headRoot = document.getElementById("header")
 
 headRoot.innerHTML = 
 `
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
 <a class="navbar-brand" href="#">Easy-Trade</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
@@ -24,6 +26,7 @@ headRoot.innerHTML =
     </li>
   </ul>
 </div>
+
 <form class="form-inline" >
 <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#singInModal">Sign In</button>
 <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#singUpModal">Sign Up</button>
@@ -154,3 +157,5 @@ document.getElementById("signInForm").addEventListener("submit", (e) => {
   
  
 })
+
+
