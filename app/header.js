@@ -216,7 +216,7 @@ function updateUserLoginStatus(){
 
     // display greetings and sign out button
     const username = JSON.parse(sessionStorage.getItem('userInfo')).user.username;
-    greetings.innerText = `Welcome! ${username}`;
+    greetings.innerText = `Welcome back, ${username} !`;
     greetings.classList.remove('d-none');
     myListings.classList.remove('d-none');
     signOutBtn.classList.remove('d-none');
