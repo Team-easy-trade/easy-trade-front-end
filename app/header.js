@@ -6,24 +6,22 @@ headRoot.innerHTML =
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Easy-Trade</a>
+      <a class="navbar-brand" href="/index.html">Easy-Trade</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Listings</a>
+            <a class="nav-link d-none" href="/account.html" id='myListings'>My Listings</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
+    
         </ul>
 
         <ul class="navbar-nav nav-flex-icons">
@@ -151,33 +149,12 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
     console.log(data)
     sessionStorage.setItem('userInfo', JSON.stringify(data));
     // redirect to account page
-    location.href = '/account.html';
+    window.location.href = '/account.html';
+
+    return;
   } catch (error){
     console.log(error);
   }
-
-
-//  fetch("https://easy-trade-backend.herokuapp.com/api/v1/signup", {
-//    method: 'POST',
-//    headers: {
-//     'Content-Type': 'application/json'
-   
-//   },
-//    body: JSON.stringify({
-//     "username": e.target.userInput.value,
-//     "password": e.target.passwordInput.value,
-//     "location": e.target.inputLocation.value,
-//      "email": e.target.emailInput.value,
-     
-//      "phone": e.target.phoneInput.value
-     
-//    })
-//  }).then(function (response) {
-//    console.log(response);
-//    const parsedUser = JSON.stringify(response);
-//    sessionStorage.setItem('userInfo', parsedUser);
-//  })
- 
 })
 
 
@@ -214,10 +191,11 @@ document.getElementById("signInForm").addEventListener("submit", async (e) => {
   try {
 
     const {data} = await axios(config);
-    console.log(data)
+    console.log(data);
     sessionStorage.setItem('userInfo', JSON.stringify(data));
     // redirect to account page
-    location.href = '/account.html';
+    window.location.href = '/account.html';
+    return;
   } catch (error){
     console.log(error)
   }
@@ -229,6 +207,7 @@ function updateUserLoginStatus(){
   const signUpBtn = document.getElementById('signUpBtn');
   const greetings = document.getElementById('greetings');
   const signOutBtn = document.getElementById('signOutBtn');
+  const myListings = document.getElementById('myListings');
 
   if (sessionStorage.getItem('userInfo')){
     // hide sign in and sign up button
@@ -239,7 +218,7 @@ function updateUserLoginStatus(){
     const username = JSON.parse(sessionStorage.getItem('userInfo')).user.username;
     greetings.innerText = `Welcome! ${username}`;
     greetings.classList.remove('d-none');
-
+    myListings.classList.remove('d-none');
     signOutBtn.classList.remove('d-none');
 
   } else {
@@ -248,7 +227,7 @@ function updateUserLoginStatus(){
     signUpBtn.classList.remove('d-none');
 
     greetings.classList.add('d-none');
-
+    myListings.classList.add('d-none');
     signOutBtn.classList.add('d-none');
   }
 }
@@ -260,5 +239,6 @@ document.getElementById("signOutBtn").addEventListener('click', ()=>{
   sessionStorage.removeItem('userInfo');
   updateUserLoginStatus();
 
-  location.href = "/index.html";
+  window.location.href = "/index.html";
+  return;
 })
