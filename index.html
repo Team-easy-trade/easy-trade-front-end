@@ -7,38 +7,23 @@
     <title>Easy-Trade</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header class="header" id="header"></header>
-
-
 
     <!-- <div class="" id="welcome-message">
         <img src="./images/photo-1579227114347-15d08fc37cae.webp" class="img-fluid w-100" alt="Responsive image" >
     </div> -->
     <div class="carousel" id="carousel"></div>
-    
 
+    <div class='container'>
+      <div id="categorySearch"></div>
+  
+      <div id="listings">
 
-    <div id="categorySearch" class = "btn-toolbar mb-3">
-        <div class="btn-group mr-2">
-            <button class="btn btn-primary" type="button">Clothing</button>
-        <button class="btn btn-warning" type="button">Electronics</button>
-        <button class="btn btn-success" type="button" >Outdoor Equipment</button>
-        <button class="btn btn-danger" type="button" >Vehicles</button>
-        </div>
-        
-        <div class="input-group d-flex ">
-            <div class="input-group-prepend float-right">
-              <div class="input-group-text" id="btnGroupAddon">search</div>
-            </div>
-            <input type="text" class="form-control" placeholder="Enter category" aria-label="Enter category" aria-describedby="btnGroupAddon">
-          </div>
-    </div>
+      </div>
 
-    <div id="listings">
-        <div class="row" id ="listings-row-one"></div>
-        <div class="row" id ="listings-row-two"></div>
     </div>
 
    
@@ -46,14 +31,13 @@
 
 
 
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="./app/header.js"></script>
-<script src="./app/footer.js"></script>
-<script src="./app/listings-home.js"></script>
-<script src="./carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./app/header.js"></script>
+    <script src="./app/footer.js"></script>
+    <script src="./app/homePageListings.js" type="module"></script>
+    <script src="./carousel.js"></script>
 
 </body>
 </html>
