@@ -5,34 +5,44 @@ headRoot.innerHTML =
 `
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Easy-Trade</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Listings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
 
-  <a class="navbar-brand" href="#">Easy-Trade</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Listings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <button id="signInBtn" class="btn btn-outline-success mr-3" type="button" data-toggle="modal" data-target="#singInModal">Sign In</button>
+          </li>
+          <li class="nav-item">
+            <button id="signUpBtn" class="btn btn-outline-secondary mr-3" type="button" data-toggle="modal" data-target="#singUpModal">Sign Up</button>
+          </li>
+          <li class="nav-item">
+            <h4 id="greetings" class="d-none text-light mr-3"></h4>
+          </li>
+          <li class="nav-item">
+            <button id="signOutBtn" class="btn btn-outline-success d-none" type="button" >Sign Out</button>
+          </li>
+        </ul>  
 
-  <form class="form-inline" >
-    <button id="signInBtn" class="btn btn-outline-success mr-3" type="button" data-toggle="modal" data-target="#singInModal">Sign In</button>
-    <button id="signUpBtn" class="btn btn-outline-secondary mr-3" type="button" data-toggle="modal" data-target="#singUpModal">Sign Up</button>
-    <h4 id="greetings" class="d-none text-light mr-3"></h4>
-    <button id="signOutBtn" class="btn btn-outline-success d-none" type="button" >Sign Out</button>
-  </form>
+      </div>
+    </div>  
   </nav>
 
   <div class="modal fade" id="singInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
