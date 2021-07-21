@@ -24,7 +24,7 @@ carouselRoot.innerHTML =
     </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100 img-fluid" src="https://images.unsplash.com/photo-1620942240843-d03040ffe976?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Third slide">
+      <img class="d-block w-100 img-fluid" src="https://images.unsplash.com/photo-1626772697349-f14f6e3ba6a6?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Third slide">
       <div class="carousel-caption d-none d-md-block">
       <h1>Easy Trade</h1>
       <h4>Buy and Sell</h4>
