@@ -2,6 +2,10 @@
 
 This is the mini project required by TLG training.
 
+Click here to see the deployed site:
+
+<https://team-easy-trade.github.io/easy-trade-front-end/>
+
 ## Team members
 
 Peng Chen
