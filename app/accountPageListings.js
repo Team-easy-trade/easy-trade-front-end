@@ -1,22 +1,22 @@
 'use strict';
+import accountBaseURL from './tools/serverUrl.js'
+
 import generateUserListiingCard from './tools/userListingCardGenerator.js';
 
-import {fakeInitData} from './fakeData.js';
+
 
 
 async function fetchData(userId){
   console.log('userID is ', userId)
   const config = {
     method:'get',
-    url:`https://easy-trade-backend.herokuapp.com/api/v1/listings/id/${userId}`,
+    url:`${accountBaseURL}/listings/id/${userId}`,
   }
 
   try{
-    // const {data} = await axios(config);
-    // refreshCards(data);
+    const {data} = await axios(config);
+    refreshCards(data.records);
 
-    // for mock test only
-    refreshCards(fakeInitData)
   } catch (error){
     console.log(error);
   }
@@ -32,4 +32,4 @@ function refreshCards(listings){
 }
 
 const userId = JSON.parse(sessionStorage.getItem('userInfo')).user._id;
-fetchData(userId)
+fetchData(userId);

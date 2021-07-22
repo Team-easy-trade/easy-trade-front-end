@@ -1,6 +1,5 @@
 'use strict';
-const baseURL = 'https://easy-trade-backend.herokuapp.com/api/v1/listing';
-
+import userListingGeneratorBaseUrl from './serverUrl.js'
 
 export default function generateUserListiingCard (listing){
   const listingNode = document.createElement('div');
@@ -34,14 +33,20 @@ export default function generateUserListiingCard (listing){
   const deleteBtn = document.createElement('button');
   deleteBtn.className="btn btn-outline-danger mr-1 mt-1";
   deleteBtn.innerText = 'DELETE';
-  deleteBtn.addEventListener('click', (e)=>{
+
+  const userToken = JSON.parse(sessionStorage.getItem('userInfo')).token;
+
+  deleteBtn.addEventListener('click', async(e)=>{
     const config = {
       method: 'delete',
-      url: `${baseURL}/${listing._id}`
+      url: `${userListingGeneratorBaseUrl}/listing/${listing._id}`,
+      headers: {
+        'Authorization': 'Bearer ' + userToken
+      }
     }
 
     try {
-      // await axios(config);
+      await axios(config);
       e.target.parentElement.classList.add('d-none');
     }
     catch(error){

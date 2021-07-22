@@ -1,8 +1,5 @@
 'use strict';
 
-import {fakeProductOwner} from './fakeData.js';
-
-sessionStorage.setItem('productOwnerInfo', JSON.stringify(fakeProductOwner));
 
 const productContainerNode = document.getElementById('productContainer');
 
