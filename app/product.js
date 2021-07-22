@@ -30,10 +30,14 @@ productContainerNode.innerHTML = `
 
         <p>${productObj.description}</p>
 
-        <p>Send Owner an Email: 
+        <div class="d-none" id="productOwnerInfo">
+        <p >Send Owner an Email: 
           <a href="mailto:${productOwner.email}">${productOwner.email}</a>
         </p>
         <p>Call the owner: ${productOwner.phone}</p>
+        </div>
+
+        <p id="showProductOwnerInfo" class="btn btn-outline-secondary mr-3 mt-1">Please Log In to see product owner contact info</p>
       </div>
 
     </div>
@@ -41,3 +45,18 @@ productContainerNode.innerHTML = `
   </div>
 
 `
+
+function toggleProductOwnerInfo(){
+  const productOwnerInfoNode = document.getElementById('productOwnerInfo');
+  const productOwnerInfoNotice = document.getElementById('showProductOwnerInfo');
+
+  if (sessionStorage.getItem('userInfo')){
+    productOwnerInfoNode.classList.remove('d-none');
+    productOwnerInfoNotice.classList.add('d-none');
+  }else {
+    productOwnerInfoNode.classList.add('d-none');
+    productOwnerInfoNotice.classList.remove('d-none');
+  }
+}
+
+toggleProductOwnerInfo();

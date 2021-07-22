@@ -106,7 +106,7 @@ async function fetchData(category){
 }
 
 
-import generateCard from './module/listingsGenerator.js';
+import generateCard from './tools/listingCardGenerator.js';
 
 function refreshCards(listings){
   const listingsNode = document.getElementById('listings');
