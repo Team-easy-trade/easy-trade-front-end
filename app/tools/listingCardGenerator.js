@@ -31,7 +31,7 @@ export default function generateCard (listing){
       <div class="card-body">
         <h4 class="card-title">${listing.name}</h4>
         <h5>${listing.category}</h5>
-        <p>${listing.price}</p>
+        <p>$${listing.price}</p>
       </div>
     </a>
   `

@@ -43,6 +43,7 @@ formNode.innerHTML = `
 `
 
 document.getElementById('listingForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
   const _id = e.target.elements['_id'].value;
   const name = e.target.elements['productName'].value;
   const price = e.target.elements['productPrice'].value;
@@ -55,21 +56,20 @@ document.getElementById('listingForm').addEventListener('submit', async (e)=>{
   const userID = userInfo.user._id;
   
   const data = { name, price, image, category, description};
-  const putData = {
+  const postData = {
     ...data,
     owner: userID,
   }
   const postConfig = {
     method: 'post',
     url: `${formBaseUrl}/listing`,
-    data:putData,
+    data:postData,
     headers: {
       'Authorization': 'Bearer ' + userToken
     },
-
   }
 
-  const putConfig = {
+  const patchConfig = {
     method: 'patch',
     url: `${formBaseUrl}/listing/${_id}`,
     data,
@@ -79,8 +79,22 @@ document.getElementById('listingForm').addEventListener('submit', async (e)=>{
   }
 
   if (e.submitter.id === 'createNewBtn'){
-    await axios(postConfig);
+    try {
+      await axios(postConfig);
+      window.location.href = 'account.html';
+      return;
+    } catch (error){
+      console.log(error);
+    }
   } else if (e.submitter.id === 'updateOneBtn'){
-    await axios(putConfig);
+    try {
+      await axios(patchConfig);
+      window.location.href = 'account.html';
+      return;
+    } catch (error){
+      console.log(error);
+    }  
   }
+
+  
 })
