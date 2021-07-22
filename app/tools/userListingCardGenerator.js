@@ -5,7 +5,7 @@ export default function generateUserListiingCard (listing){
   const listingNode = document.createElement('div');
   listingNode.className = 'card';
   listingNode.innerHTML =  `
-    <img class="card-img-top" src=${listing.image} alt="Card image cap">
+    <img class=" img-fluid" style="height : 175px" src=${listing.image} alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title">${listing.name}</h4>
       <h5>${listing.category}</h5>
