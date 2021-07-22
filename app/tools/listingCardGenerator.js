@@ -1,9 +1,10 @@
 'use strict';
+import listingCardGeneratorBaseUrl from './serverUrl.js'
 
 async function fetchProductOwnerData(ownerID) {
   const config = {
     method:'get',
-    url: `https://easy-trade-backend.herokuapp.com/api/v1/user/${ownerID}`
+    url: `${listingCardGeneratorBaseUrl}/user/${ownerID}`
   }
   try {
     const {data} = await axios(config);
@@ -26,8 +27,7 @@ export default function generateCard (listing){
     </a>
   `
   listingNode.addEventListener('click',async(e)=>{
-    // uncomment for production
-    // fetchProductOwnerData(listing.owner);
+    fetchProductOwnerData(listing.owner);
 
     sessionStorage.setItem('productInfo', JSON.stringify(listing));
   })

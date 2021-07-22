@@ -1,5 +1,5 @@
 'use strict';
-
+import formBaseUrl from './tools/serverUrl.js'
 const formNode = document.getElementById('inputForm');
 
 formNode.innerHTML = `
@@ -43,29 +43,35 @@ formNode.innerHTML = `
 `
 
 document.getElementById('listingForm').addEventListener('submit', async (e)=>{
-  const baseURL = 'https://easy-trade-backend.herokuapp.com/api/v1/listing'
   const _id = e.target.elements['_id'].value;
   const name = e.target.elements['productName'].value;
   const price = e.target.elements['productPrice'].value;
   const image = e.target.elements['imageURL'].value;
   const category = e.target.elements['productCategory'].value;
   const description = e.target.elements['productDesc'].value;
-  const userToken = JSON.parse(sessionStorage.getItem('userInfo')).token;
+
+  const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  const userToken = userInfo.token;
+  const userID = userInfo.user._id;
   
   const data = { name, price, image, category, description};
-
+  const putData = {
+    ...data,
+    owner: userID,
+  }
   const postConfig = {
     method: 'post',
-    url: `${baseURL}`,
-    data,
+    url: `${formBaseUrl}/listing`,
+    data:putData,
     headers: {
       'Authorization': 'Bearer ' + userToken
-    }
+    },
+
   }
 
   const putConfig = {
-    method: 'put',
-    url: `${baseURL}/${_id}`,
+    method: 'patch',
+    url: `${formBaseUrl}/listing/${_id}`,
     data,
     headers: {
       'Authorization': 'Bearer ' + userToken
