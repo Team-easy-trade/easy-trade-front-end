@@ -7,7 +7,7 @@ import generateUserListiingCard from './tools/userListingCardGenerator.js';
 
 
 async function fetchData(userId){
-  console.log('userID is ', userId)
+
   const config = {
     method:'get',
     url:`${accountBaseURL}/listings/id/${userId}`,

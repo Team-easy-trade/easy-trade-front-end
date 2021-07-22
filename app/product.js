@@ -5,7 +5,9 @@ const productContainerNode = document.getElementById('productContainer');
 
 const productObj = JSON.parse(sessionStorage.getItem('productInfo'));
 
-const productOwner = JSON.parse(sessionStorage.getItem('productOwnerInfo'));
+const productOwnerJson = sessionStorage.getItem('productOwnerInfo');
+
+const productOwner = productOwnerJson? JSON.parse(productOwnerJson) : null;
 
 productContainerNode.innerHTML = `
 
@@ -29,9 +31,9 @@ productContainerNode.innerHTML = `
 
         <div class="d-none" id="productOwnerInfo">
         <p >Send Owner an Email: 
-          <a href="mailto:${productOwner.email}">${productOwner.email}</a>
+          <a href="mailto:${productOwner? productOwner.email : 'none'}">${productOwner? productOwner.email : 'none'}</a>
         </p>
-        <p>Call the owner: ${productOwner.phone}</p>
+        <p>Call the owner: ${productOwner? productOwner.phone : 'none'}</p>
         </div>
 
         <p id="showProductOwnerInfo" class="btn btn-outline-secondary mr-3 mt-1">Please Log In to see product owner contact info</p>

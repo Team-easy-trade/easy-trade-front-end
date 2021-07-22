@@ -60,8 +60,8 @@ const categoryBtns = document.getElementsByClassName('category');
 for (let button of categoryBtns){
   button.addEventListener('click', async (e) => {
     const category = e.target.innerText;
-
     const data = await fetchData(category);
+    console.log(data)
     refreshCards(data.records);
 
   })
@@ -73,7 +73,7 @@ async function fetchData(category){
     url:`${homeBaseURL}/listings/category/${category}`
   }
 
-  if (category === 'all'){
+  if (category === 'All'){
     config.url = `${homeBaseURL}/listings`;
   }
 
@@ -97,9 +97,8 @@ function refreshCards(listings){
 }
 
 
-fetchData('all')
+fetchData('All')
   .then(data =>{
-    console.log(data)
     refreshCards(data.records);
   })
 
