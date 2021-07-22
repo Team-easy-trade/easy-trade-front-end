@@ -1,11 +1,23 @@
 'use strict';
 
+async function fetchProductOwnerData(ownerID) {
+  const config = {
+    method:'get',
+    url: `https://easy-trade-backend.herokuapp.com/api/v1/user/${ownerID}`
+  }
+  try {
+    const {data} = await axios(config);
+    sessionStorage.setItem('productOwnerInfo', JSON.stringify(data));
+  } catch (error){
+    console.log(error);
+  }
+}
 
 export default function generateCard (listing){
   const listingNode = document.createElement('div');
   listingNode.innerHTML =  `
     <a class="card" style="width: 15rem; padding: 10px; margin: 15px;" href="product.html">
-      <img class="card-img-top" src=${listing.imageURL} alt="Card image cap">
+      <img class="card-img-top" src=${listing.image} alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">${listing.name}</h4>
         <h5>${listing.category}</h5>
@@ -13,18 +25,11 @@ export default function generateCard (listing){
       </div>
     </div>
   `
-  listingNode.addEventListener('click',(e)=>{
+  listingNode.addEventListener('click',async(e)=>{
+    // uncomment for production
+    // fetchProductOwnerData(listing.owner);
+
     sessionStorage.setItem('productInfo', JSON.stringify(listing));
   })
   return listingNode;
 };
-
-//  function generatelistingsNode (listings){
-//   const listingsNode = document.createElement('div');
-
-//   for (let listing of listings){
-//     listingsNode.appendChild(generateCard(listing));
-//   }
-
-//   return listingsNode;
-// };
