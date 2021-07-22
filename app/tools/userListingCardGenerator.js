@@ -18,7 +18,15 @@ export default function generateUserListiingCard (listing){
   editBtn.className="btn btn-outline-success mr-1 mt-1";
   editBtn.innerText = 'EDIT';
   editBtn.addEventListener('click', ()=>{
+    document.getElementById('updateOneBtn').classList.remove('d-none');
+    document.getElementById('createNewBtn').classList.add('d-none');
 
+    document.getElementById('_id').value = listing._id;
+    document.getElementById('productName').value = listing.name;
+    document.getElementById('productPrice').value = listing.price;
+    document.getElementById('imageURL').value = listing.image;
+    document.getElementById('productCategory').value = listing.category;
+    document.getElementById('productDesc').value = listing.description;
   });
 
   listingNode.appendChild(editBtn);

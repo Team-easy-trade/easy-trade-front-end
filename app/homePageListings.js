@@ -47,10 +47,13 @@ listingsSearchBar.innerHTML = `
           <a class="nav-link category" >Electronics</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link category" >Outdoor Equipment</a>
+          <a class="nav-link category" >Outdoor</a>
         </li>
         <li class="nav-item">
           <a class="nav-link category">Vehicles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link category">Other</a>
         </li>
 
       </ul>
