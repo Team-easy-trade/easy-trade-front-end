@@ -4,32 +4,32 @@ const headRoot = document.getElementById("header")
 headRoot.innerHTML = 
 `
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar">
     <div class="container">
-      <a class="navbar-brand" href="../index.html">Easy-Trade</a>
+      <a class="navbar-brand waves-effect waves-light rgba-white-slight" href="../index.html">Easy-Trade</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link waves-effect" href="../index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
+            <a class="nav-link waves-effect" href="#">About us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-none" href="../account.html" id='myListings'>My Listings</a>
+            <a class="nav-link d-none waves-effect" href="../account.html" id='myListings'>My Listings</a>
           </li>
     
         </ul>
 
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
-            <button id="signInBtn" class="btn btn-outline-success mr-3" type="button" data-toggle="modal" data-target="#singInModal">Sign In</button>
+            <button id="signInBtn" class=" nav-link btn btn-outline-success mr-3 mt-1" type="button" data-toggle="modal" data-target="#singInModal">Sign In</button>
           </li>
           <li class="nav-item">
-            <button id="signUpBtn" class="btn btn-outline-secondary mr-3" type="button" data-toggle="modal" data-target="#singUpModal">Sign Up</button>
+            <button id="signUpBtn" class="nav-link btn btn-outline-secondary mr-3 mt-1" type="button" data-toggle="modal" data-target="#singUpModal">Sign Up</button>
           </li>
           <li class="nav-item">
             <h4 id="greetings" class="d-none text-light mr-3"></h4>
