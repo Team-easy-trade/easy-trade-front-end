@@ -146,7 +146,7 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
   }
   try {
     const {data} = await axios(config);
-    console.log(data)
+
     sessionStorage.setItem('userInfo', JSON.stringify(data));
     // redirect to account page
     window.location.href = 'account.html';
@@ -165,20 +165,6 @@ document.getElementById("signInForm").addEventListener("submit", async (e) => {
   let username = e.target.username.value;
   let password = e.target.password.value;
   let url = `https://easy-trade-backend.herokuapp.com/api/v1/signin`
-  // let authString = `${username}:${password}`
-  // let headers = new Headers();
-  // headers.set('Authorization', 'Basic ' + btoa(authString))
-  // fetch(url,{method: 'POST', headers: headers})
-  //   .then(function (response) {
-  //       return response.json();
-        
-  //   })
-  //   .then(data => {
-  //     console.log(data.token);
-  //     sessionStorage.setItem('userInfo', data);
-  //   });
-
-  // fetch is such a pain in the ass to work with. I am sorry I have to get rid of it.
 
   const config = {
     method: 'post',
@@ -191,7 +177,7 @@ document.getElementById("signInForm").addEventListener("submit", async (e) => {
   try {
 
     const {data} = await axios(config);
-    console.log(data);
+
     sessionStorage.setItem('userInfo', JSON.stringify(data));
     // redirect to account page
     window.location.href = 'account.html';
@@ -237,6 +223,8 @@ updateUserLoginStatus();
 
 document.getElementById("signOutBtn").addEventListener('click', ()=>{
   sessionStorage.removeItem('userInfo');
+  sessionStorage.removeItem('productInfo');
+  sessionStorage.removeItem('productOwnerInfo');
   updateUserLoginStatus();
 
   window.location.href = "index.html";
