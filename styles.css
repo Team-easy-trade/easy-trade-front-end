@@ -4,7 +4,7 @@
 
 
 .carousel {
-  height: 40vh;
+  height: 50vh;
 }
 
 
@@ -19,4 +19,15 @@ html{height:100%}
 
 a {
   text-decoration: none;
+}
+
+main {
+  margin-top:100px;
+  min-height: 70vh;
+}
+
+.card {
+  width: 15rem; 
+  padding: 10px; 
+  margin: 15px;
 }

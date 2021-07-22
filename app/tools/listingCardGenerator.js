@@ -23,7 +23,7 @@ export default function generateCard (listing){
         <h5>${listing.category}</h5>
         <p>${listing.price}</p>
       </div>
-    </div>
+    </a>
   `
   listingNode.addEventListener('click',async(e)=>{
     // uncomment for production
