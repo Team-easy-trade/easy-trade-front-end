@@ -44,7 +44,7 @@ export default function generateCard (listing){
 
 
     sessionStorage.setItem('productInfo', JSON.stringify(listing));
-    window.location.href = "/product.html";
+    window.location.href = "product.html";
     return;
   });
 
