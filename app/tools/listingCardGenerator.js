@@ -22,9 +22,12 @@ async function fetchProductOwnerData(ownerID) {
 
 export default function generateCard (listing){
   const listingNode = document.createElement('div');
+  //card-img-top
   listingNode.innerHTML =  `
+
     <a class="card" >
-      <img class="card-img-top" src=${listing.image} alt="Card image cap">
+      <img  src=${listing.image} style="height: 175px" class="img-fluid card-img-top"  alt="Card image cap">
+
       <div class="card-body">
         <h4 class="card-title">${listing.name}</h4>
         <h5>${listing.category}</h5>
@@ -34,9 +37,11 @@ export default function generateCard (listing){
   `
   listingNode.addEventListener('click',async(e)=>{
 
+
     if (sessionStorage.getItem('userInfo')){
       await fetchProductOwnerData(listing.owner);
     }
+
 
     sessionStorage.setItem('productInfo', JSON.stringify(listing));
     window.location.href = "/product.html";
