@@ -3,7 +3,7 @@
 function generateCard (listing){
   const listingNode = document.createElement('div');
   listingNode.innerHTML =  `
-    <a class="card" style="width: 18rem; padding-bottom: 10px; margin-bottom: 20px;" href="../product.html">
+    <a class="card" style="width: 18rem; padding-bottom: 10px; margin-bottom: 20px;" href="product.html">
       <img class="card-img-top" src=${listing.imageURL} alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">${listing.name}</h4>

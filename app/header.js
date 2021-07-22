@@ -6,20 +6,20 @@ headRoot.innerHTML =
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar">
     <div class="container">
-      <a class="navbar-brand waves-effect waves-light rgba-white-slight" href="../index.html">Easy-Trade</a>
+      <a class="navbar-brand waves-effect waves-light rgba-white-slight" href="index.html">Easy-Trade</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link waves-effect" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="#">About us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-none waves-effect" href="../account.html" id='myListings'>My Listings</a>
+            <a class="nav-link d-none waves-effect" href="account.html" id='myListings'>My Listings</a>
           </li>
     
         </ul>
@@ -149,7 +149,7 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
     console.log(data)
     sessionStorage.setItem('userInfo', JSON.stringify(data));
     // redirect to account page
-    window.location.href = '../account.html';
+    window.location.href = 'account.html';
 
     return;
   } catch (error){
@@ -194,7 +194,7 @@ document.getElementById("signInForm").addEventListener("submit", async (e) => {
     console.log(data);
     sessionStorage.setItem('userInfo', JSON.stringify(data));
     // redirect to account page
-    window.location.href = '../account.html';
+    window.location.href = 'account.html';
     return;
   } catch (error){
     console.log(error)
@@ -239,6 +239,6 @@ document.getElementById("signOutBtn").addEventListener('click', ()=>{
   sessionStorage.removeItem('userInfo');
   updateUserLoginStatus();
 
-  window.location.href = "../index.html";
+  window.location.href = "index.html";
   return;
 })
