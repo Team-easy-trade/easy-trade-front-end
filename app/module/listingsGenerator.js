@@ -1,9 +1,10 @@
 'use strict';
 
-function generateCard (listing){
+
+export default function generateCard (listing){
   const listingNode = document.createElement('div');
   listingNode.innerHTML =  `
-    <a class="card" style="width: 18rem; padding-bottom: 10px; margin-bottom: 20px;" href="product.html">
+    <a class="card" style="width: 15rem; padding: 10px; margin: 15px;" href="product.html">
       <img class="card-img-top" src=${listing.imageURL} alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">${listing.name}</h4>
@@ -18,13 +19,12 @@ function generateCard (listing){
   return listingNode;
 };
 
+//  function generatelistingsNode (listings){
+//   const listingsNode = document.createElement('div');
 
-export default function generatelistingsNode (listings){
-  const listingsNode = document.createElement('div');
+//   for (let listing of listings){
+//     listingsNode.appendChild(generateCard(listing));
+//   }
 
-  for (let listing of listings){
-    listingsNode.appendChild(generateCard(listing));
-  }
-
-  return listingsNode;
-};
+//   return listingsNode;
+// };
