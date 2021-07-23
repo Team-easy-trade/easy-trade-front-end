@@ -60,17 +60,21 @@ const categoryBtns = document.getElementsByClassName('category');
 for (let button of categoryBtns){
   button.addEventListener('click', async (e) => {
     const category = e.target.innerText;
+    sessionStorage.setItem('currentCategory', category);
     const data = await fetchData(category);
+    document.getElementById('paginationNav').innerHTML = '';
     console.log(data)
-    refreshCards(data.records);
-
+    refreshCards(data);
   })
 };
 
-async function fetchData(category){
+async function fetchData(category, page=1){
   const config = {
     method:'get',
-    url:`${homeBaseURL}/listings/category/${category}`
+    url:`${homeBaseURL}/listings/category/${category}`,
+    params:{
+      page
+    }
   }
 
   if (category === 'All'){
@@ -87,19 +91,33 @@ async function fetchData(category){
 
 
 import generateCard from './tools/listingCardGenerator.js';
+import generatePagination from './tools/pagination.js';
 
 function refreshCards(listings){
   const listingsNode = document.getElementById('listings');
   listingsNode.innerHTML = '';
-  for (let listing of listings){
+  for (let listing of listings.records){
     listingsNode.appendChild(generateCard(listing));
+  }
+
+  document.getElementById('paginationNav').innerHTML = '';
+  generatePagination(listings.totalPages);
+
+  const paginationItems = document.getElementsByClassName('page-link');
+
+  for (let page of paginationItems){
+    page.addEventListener('click', async(e)=>{
+
+      const category = sessionStorage.getItem('currentCategory');
+      const pageNumber = e.target.innerText;
+      const data = await fetchData(category, pageNumber);
+      refreshCards(data);
+    })
   }
 }
 
 
 fetchData('All')
   .then(data =>{
-    refreshCards(data.records);
+    refreshCards(data);
   })
-
-
