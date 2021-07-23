@@ -1,8 +1,6 @@
+const headRoot = document.getElementById("header");
 
-const headRoot = document.getElementById("header")
-
-headRoot.innerHTML = 
-`
+headRoot.innerHTML = `
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar">
     <div class="container">
@@ -14,9 +12,6 @@ headRoot.innerHTML =
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link waves-effect" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="#">About us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link d-none waves-effect" href="account.html" id='myListings'>My Listings</a>
@@ -120,12 +115,10 @@ headRoot.innerHTML =
     </div>
   </div>
 
-`
-
-
+`;
 
 document.getElementById("signUpForm").addEventListener("submit", async (e) => {
-  e.preventDefault()
+  e.preventDefault();
   const username = e.target.userInput.value;
   const password = e.target.passwordInput.value;
   const location = e.target.inputLocation.value;
@@ -134,99 +127,94 @@ document.getElementById("signUpForm").addEventListener("submit", async (e) => {
   const url = "https://easy-trade-backend.herokuapp.com/api/v1/signup";
 
   const config = {
-    method: 'post',
+    method: "post",
     url,
     data: {
       username,
       password,
       location,
       email,
-      phone
-    }
-  }
+      phone,
+    },
+  };
   try {
-    const {data} = await axios(config);
+    const { data } = await axios(config);
 
-    sessionStorage.setItem('userInfo', JSON.stringify(data));
+    sessionStorage.setItem("userInfo", JSON.stringify(data));
     // redirect to account page
-    window.location.href = 'account.html';
+    window.location.href = "account.html";
 
     return;
-  } catch (error){
+  } catch (error) {
     console.log(error);
   }
-})
+});
 
-
-  
 document.getElementById("signInForm").addEventListener("submit", async (e) => {
-  e.preventDefault()
- 
+  e.preventDefault();
+
   let username = e.target.username.value;
   let password = e.target.password.value;
-  let url = `https://easy-trade-backend.herokuapp.com/api/v1/signin`
+  let url = `https://easy-trade-backend.herokuapp.com/api/v1/signin`;
 
   const config = {
-    method: 'post',
+    method: "post",
     url,
     auth: {
       username,
-      password
-    }
-  }
+      password,
+    },
+  };
   try {
+    const { data } = await axios(config);
 
-    const {data} = await axios(config);
-
-    sessionStorage.setItem('userInfo', JSON.stringify(data));
+    sessionStorage.setItem("userInfo", JSON.stringify(data));
     // redirect to account page
-    window.location.href = 'account.html';
+    window.location.href = "account.html";
     return;
-  } catch (error){
-    console.log(error)
+  } catch (error) {
+    console.log(error);
   }
+});
 
-})
+function updateUserLoginStatus() {
+  const signInBtn = document.getElementById("signInBtn");
+  const signUpBtn = document.getElementById("signUpBtn");
+  const greetings = document.getElementById("greetings");
+  const signOutBtn = document.getElementById("signOutBtn");
+  const myListings = document.getElementById("myListings");
 
-function updateUserLoginStatus(){
-  const signInBtn = document.getElementById('signInBtn');
-  const signUpBtn = document.getElementById('signUpBtn');
-  const greetings = document.getElementById('greetings');
-  const signOutBtn = document.getElementById('signOutBtn');
-  const myListings = document.getElementById('myListings');
-
-  if (sessionStorage.getItem('userInfo')){
+  if (sessionStorage.getItem("userInfo")) {
     // hide sign in and sign up button
-    signInBtn.classList.add('d-none');
-    signUpBtn.classList.add('d-none');
+    signInBtn.classList.add("d-none");
+    signUpBtn.classList.add("d-none");
 
     // display greetings and sign out button
-    const username = JSON.parse(sessionStorage.getItem('userInfo')).user.username;
+    const username = JSON.parse(sessionStorage.getItem("userInfo")).user
+      .username;
     greetings.innerText = `Welcome back, ${username} !`;
-    greetings.classList.remove('d-none');
-    myListings.classList.remove('d-none');
-    signOutBtn.classList.remove('d-none');
-
+    greetings.classList.remove("d-none");
+    myListings.classList.remove("d-none");
+    signOutBtn.classList.remove("d-none");
   } else {
     // reverse it
-    signInBtn.classList.remove('d-none');
-    signUpBtn.classList.remove('d-none');
+    signInBtn.classList.remove("d-none");
+    signUpBtn.classList.remove("d-none");
 
-    greetings.classList.add('d-none');
-    myListings.classList.add('d-none');
-    signOutBtn.classList.add('d-none');
+    greetings.classList.add("d-none");
+    myListings.classList.add("d-none");
+    signOutBtn.classList.add("d-none");
   }
 }
 
 updateUserLoginStatus();
 
-
-document.getElementById("signOutBtn").addEventListener('click', ()=>{
-  sessionStorage.removeItem('userInfo');
-  sessionStorage.removeItem('productInfo');
-  sessionStorage.removeItem('productOwnerInfo');
+document.getElementById("signOutBtn").addEventListener("click", () => {
+  sessionStorage.removeItem("userInfo");
+  sessionStorage.removeItem("productInfo");
+  sessionStorage.removeItem("productOwnerInfo");
   updateUserLoginStatus();
 
   window.location.href = "index.html";
   return;
-})
+});
