@@ -1,7 +1,6 @@
-const footer = document.getElementById("footer")
+const footer = document.getElementById("footer");
 
-footer.innerHTML = 
-`
+footer.innerHTML = `
 <footer class="bg-dark text-center text-lg-start text-white">
   <!-- Grid container -->
   <div class="container p-4">
@@ -9,24 +8,22 @@ footer.innerHTML =
     <div class="row">
       <!--Grid column-->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Footer text</h5>
+        <h5 class="text-uppercase">About Us</h5>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-          molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-          aliquam voluptatem veniam, est atque cumque eum delectus sint!
+        Three veteran developers have combined forces in order to make an 
+        e-commerce style website. This website gives consumers the ability
+        to trade, buy, and sell their belongings. 
         </p>
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Footer text</h5>
+        <h5 class="text-uppercase">Contact Us</h5>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-          molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-          aliquam voluptatem veniam, est atque cumque eum delectus sint!
+          You may contact us at Easypay@tlgcohort.com
         </p>
       </div>
       <!--Grid column-->
@@ -44,4 +41,4 @@ footer.innerHTML =
   </div>
   <!-- Copyright -->
 </footer>
-`
+`;
