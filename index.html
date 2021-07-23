@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- commint out base URL for local testing -->
-    <base href="/easy-trade-front-end/" />
+    <!-- <base href="/easy-trade-front-end/" /> -->
 
 </head>
 <body>
@@ -20,10 +20,13 @@
     </div> -->
     <!-- <div class="carousel" id="carousel"></div> -->
     <div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel"></div>
-    <div class='container'>
+    <div class='container' >
       <div id="categorySearch"></div>
       
-      <section class="text-center mb-4 d-flex p-2 flex-row flex-wrap justify-content-around" id="listings">
+      <div id="listingsContainer">
+        <section class="text-center mb-4 d-flex p-2 flex-row flex-wrap justify-content-around" id="listings"></section>
+        <nav class="d-flex justify-content-center wow fadeIn" id="paginationNav"></nav>
+      </div>
       
 
       </div>
